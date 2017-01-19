@@ -1,0 +1,297 @@
+﻿<UserControl x:Class="WW.WPF.VirtualKeyboard.UserControls.UCKeyboardABC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WW.WPF.VirtualKeyboard.UserControls"
+             xmlns:native="clr-namespace:ManagedNativeWrapper;assembly=ManagedNativeWrapper"
+             xmlns:converters="clr-namespace:WW.WPF.VirtualKeyboard.Converters"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:properties="clr-namespace:WW.WPF.VirtualKeyboard.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="240" d:DesignWidth="320">
+    <UserControl.Resources>
+        <converters:MultiInOneConverter x:Key="MultiInOneConverter"/>
+        <ObjectDataProvider x:Key="VirtualKeyCodeEnumValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="native:VirtualKeyCode" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid Margin="1,1,1,1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Margin="2" Content=".,"        Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>.</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>,</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1" Margin="2" Content="ABC"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold"  FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>a</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>b</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>c</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="2" Margin="2" Content="DEF"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>d</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>e</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>f</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <RepeatButton Grid.Row="0" Grid.Column="3" Margin="2"               Command="{Binding SpecialKeyCommand}" Delay="250" Interval="50">
+            <RepeatButton.Content>
+                <Image Source="pack://application:,,,/Images/appbar.clear.reflect.horizontal.png" />
+            </RepeatButton.Content>
+            <RepeatButton.CommandParameter>
+                <Binding>
+                    <Binding.Source>
+                        <native:VirtualKeyCode>Back</native:VirtualKeyCode>
+                    </Binding.Source>
+                </Binding>
+            </RepeatButton.CommandParameter>
+        </RepeatButton>
+
+        <Button Grid.Row="1" Grid.Column="0" Margin="2" Content="GHI"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>g</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>h</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>i</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Margin="2" Content="JKL"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>j</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>k</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>l</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2" Margin="2" Content="MNO"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>m</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>n</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>o</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="3" Margin="2"                     Command="{Binding ChangeControlCommand}"    CommandParameter="123">
+            <Button.Content>
+                <Image Source="../Images/numeric.png" />
+            </Button.Content>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="0" Margin="2" Content="PQRS"      Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>p</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>q</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>r</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>s</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="2" Content="TUV"       Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>t</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>u</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>v</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="2" Content="WXYZ"      Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>w</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>x</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>y</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>z</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="3" Margin="2"                     Command="{Binding ChangeControlCommand}"    CommandParameter="SYM1">
+            <Button.Content>
+                <Image Source="pack://application:,,,/Images/appbar.symbol.braces.png" />
+            </Button.Content>
+        </Button>
+
+        <ToggleButton Grid.Row="3" Grid.Column="0" Margin="2"               IsChecked="{Binding ShiftButtonClicked}" >
+            <ToggleButton.Content>
+                <Image Source="pack://application:,,,/Images/shift.png" />
+            </ToggleButton.Content>
+        </ToggleButton>
+        <Button Grid.Row="3" Grid.Column="1" Margin="2" Content="Space"     Command="{Binding SpecialKeyCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <Binding>
+                    <Binding.Source>
+                        <native:VirtualKeyCode>Space</native:VirtualKeyCode>
+                    </Binding.Source>
+                </Binding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="2" Content="-_"        Command="{Binding UnicodeButtonClickedCommand}" FontWeight="Bold" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ResourceKey=MultiInOneConverter}">
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>-</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                    <Binding>
+                        <Binding.Source>
+                            <sys:Char>_</sys:Char>
+                        </Binding.Source>
+                    </Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <RepeatButton Grid.Row="3" Grid.Column="3" Margin="2"               Command="{Binding SpecialKeyCommand}" Delay="250" Interval="50">
+            <RepeatButton.Content>
+                <Image Source="pack://application:,,,/Images/enter.png" />
+            </RepeatButton.Content>
+            <RepeatButton.CommandParameter>
+                <Binding>
+                    <Binding.Source>
+                        <native:VirtualKeyCode>Return</native:VirtualKeyCode>
+                    </Binding.Source>
+                </Binding>
+            </RepeatButton.CommandParameter>
+        </RepeatButton>
+    </Grid>
+</UserControl>
