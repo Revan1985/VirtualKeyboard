@@ -10,4 +10,4 @@ Use Win32 API to lost focus every time is gained and a button clicked, so that t
 Try to use also a Cli wrapper for the native part.
 
 
-This Keyboard does not need to be integrated in an appication, it's a standalone version that uses win api to stay always on top of other windows (since i didn't found a valid way to do this in wpf)
+This Keyboard does not need to be integrated in an appication, it's a standalone version.
