@@ -94,8 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToStyleHideConverter.cs" />
     <Compile Include="Converters\MultiInOneConverter.cs" />
     <Compile Include="Extension\EnumBindingSourceExtension.cs" />
+    <Compile Include="Extension\SettingBindingExtension.cs" />
     <Compile Include="ModelView\KeyboardModelView.cs" />
     <Compile Include="UserControls\Symbols\UCKeyboardSymbol1.xaml.cs">
       <DependentUpon>UCKeyboardSymbol1.xaml</DependentUpon>
@@ -179,6 +181,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,11 +239,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\shift.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Images\shift_false.png" />
+    <Resource Include="Images\shift_null.png" />
+    <Resource Include="Images\shift_true.png" />
     <Content Include="Images\textbox.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

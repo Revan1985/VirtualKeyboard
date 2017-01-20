@@ -58,5 +58,29 @@ namespace WW.WPF.VirtualKeyboard.Properties {
                 this["PrimaryScreen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HideTitleBar {
+            get {
+                return ((bool)(this["HideTitleBar"]));
+            }
+            set {
+                this["HideTitleBar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ExitOnEnterPress {
+            get {
+                return ((bool)(this["ExitOnEnterPress"]));
+            }
+            set {
+                this["ExitOnEnterPress"] = value;
+            }
+        }
     }
 }
