@@ -31,7 +31,7 @@ namespace NativeWrapper
 
 		data = ::SendInput((UINT)inputs->Length, pInputs, sizeof(::INPUT));
 
-		if (pInputs != nullptr) { delete pInputs; }
+		if (pInputs != nullptr) { delete[] pInputs; }
 
 		return data;
 	}
